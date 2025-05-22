@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Allah: Our Mighty and Loving Creator - Quiz</title>
+  <style>
+    /* Body & base styles */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0f172a; /* dark navy */
+      color: #cbd5e1; /* light gray-blue */
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Heading with divine glow effect */
+    h1#allah-heading {
+      font-size: 2.8em;
+      color: #ffffff;
+      text-shadow:
+        0 0 10px #60a5fa,
+        0 0 20px #2563eb,
+        0 0 30px #3b82f6,
+        0 0 40px #60a5fa;
+      font-weight: bold;
+      font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+      margin-top: 40px;
+      line-height: 1.4;
+    }
+
+    h1#allah-heading span {
+      font-size: 1.4em;
+      display: block;
+      color: #93c5fd;
+      margin-bottom: 10px;
+      font-family: 'Scheherazade New', serif;
+      text-shadow:
+        0 0 5px #93c5fd,
+        0 0 10px #60a5fa;
+    }
+
+    /* Quiz container */
+    .quiz-container {
+      background-color: #1e293b; /* dark slate */
+      border-radius: 12px;
+      padding: 25px 30px;
+      margin: 40px auto;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.6);
+    }
+
+    #question {
+      font-size: 1.6em;
+      margin-bottom: 25px;
+      font-weight: 600;
+      color: #93c5fd;
+      min-height: 60px;
+    }
+
+    #options {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #options li {
+      background-color: #2563eb; /* bright blue */
+      color: white;
+      padding: 14px 20px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.5);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+
+    #options li:hover {
+      background-color: #3b82f6; /* lighter blue */
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.8);
+    }
+
+    #options li.selected {
+      background-color: #22c55e; /* green */
+      box-shadow: 0 6px 20px rgba(34, 197, 94, 0.8);
+    }
+
+    #feedback {
+      margin-top: 20px;
+      font-size: 1.2em;
+      min-height: 30px;
+      font-weight: 600;
+    }
+
+    #nextBtn {
+      margin-top: 25px;
+      padding: 12px 28px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.1em;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(37, 99, 235, 0.7);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+
+    #nextBtn:disabled {
+      background-color: #94a3b8;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    #nextBtn:hover:not(:disabled) {
+      background-color: #1e40af;
+      box-shadow: 0 8px 20px rgba(30, 64, 175, 0.9);
+    }
+
+    /* Naseehat message after quiz */
+    #naseehat {
+      background-color: #0f172a;
+      color: #93c5fd;
+      margin-top: 30px;
+      padding: 25px 20px;
+      border-radius: 15px;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      max-width: 600px;
+      box-shadow: 0 6px 15px rgba(59, 130, 246, 0.5);
+      line-height: 1.5;
+      display: none;
+    }
+
+    #naseehat h2 {
+      color: #60a5fa;
+      margin-bottom: 15px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 700px) {
+      h1#allah-heading {
+        font-size: 2.2em;
+      }
+      #question {
+        font-size: 1.3em;
+      }
+      #nextBtn {
+        width: 100%;
+        padding: 14px 0;
+      }
+      .quiz-container {
+        padding: 20px 20px;
+        margin: 30px 15px;
+      }
+      #naseehat {
+        margin: 20px 15px;
+        padding: 20px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="allah-heading">
+    <span>﷽</span>
+    ALLAH Our Mighty and Loving Creator
+  </h1>
+
+  <div class="quiz-container" id="quiz">
+    <h2 id="question"></h2>
+    <ul id="options"></ul>
+    <div id="feedback"></div>
+    <button id="nextBtn" disabled>Next</button>
+  </div>
+
+  <div id="naseehat">
+    <h2>✅MashaAllah Quiz completed! May your heart be filled with wisdom and your actions with faith.</h2>
+    <p>
+      Allah created us so we may know Him and follow His guidance with love and sincerity.<br><br>
+      <strong>Dear Parents:</strong> Help your children stay close to the Deen through kindness, love, and joyful Islamic learning.<br><br>
+      <strong>Dear Kids:</strong> Always remember: Even when no one sees you, Allah does. So always choose what is right.<br><br>
+      Be kind, speak the truth, and always do what’s good. You are never too small to shine bright with Imaan!
+    </p>
+  </div>
+
+<script>
+  const quizData = [
+    {
+      question: "Who is the Creator of the Universe?",
+      options: ["Allah", "Prophet Muhammad", "Angel Jibrael"],
+      answer: 0
+    },
+    {
+      question: "Allah is very...",
+      options: ["Loving", "Angry", "Sad"],
+      answer: 0
+    },
+    {
+      question: "Who made the sun, moon, and stars?",
+      options: ["Allah", "The sky", "The earth"],
+      answer: 0
+    },
+    {
+      question: "Allah is the King of...?",
+      options: ["The Universe", "The Animals", "The Plants"],
+      answer: 0
+    },
+    {
+      question: "Allah’s love is...?",
+      options: ["Endless", "Short", "Sometimes"],
+      answer: 0
+    },
+    {
+      question: "Who watches over us all?",
+      options: ["Our Parents", "Our Friends", "Allah"],
+      answer: 2
+    },
+    {
+      question: "We say thanks to Allah by...?",
+      options: ["Watching TV", "Playing games", "Praying and being kind"],
+      answer: 2
+    },
+    {
+      question: "Allah creates everything around us. True or False?",
+      options: ["True", "False"],
+      answer: 0
+    },
+    {
+      question: "Allah is...",
+      options: ["A Storybook character", "The Mighty Creator", "A Teacher"],
+      answer: 1
+    },
+    {
+      question: "Who gives us life and takes it away?",
+      options: ["Friends", "Allah", "Parents"],
+      answer: 1
+    },
+    {
+      question: "Allah loves when we are...",
+      options: ["Kind", "Mean", "Lazy"],
+      answer: 0
+    }
+  ];
+
+  const questionEl = document.getElementById("question");
+  const optionsEl = document.getElementById("options");
+  const feedbackEl = document.getElementById("feedback");
+  const nextBtn = document.getElementById("nextBtn");
+  const quizDiv = document.getElementById("quiz");
+  const naseehatDiv = document.getElementById("naseehat");
+
+  let currentQuestionIndex = 0;
+  let selectedOptionIndex = null;
+
+  function loadQuestion() {
+    const currentQuestion = quizData[currentQuestionIndex];
+    questionEl.textContent = currentQuestion.question;
+    optionsEl.innerHTML = "";
+    currentQuestion.options.forEach((option, index) => {
+      const li = document.createElement("li");
+      li.textContent = option;
+      li.onclick = () => selectOption(index, li);
+      optionsEl.appendChild(li);
+    });
+    feedbackEl.textContent = "";
+    nextBtn.disabled = true;
+    selectedOptionIndex = null;
+  }
+
+  function selectOption(index, element) {
+    if (selectedOptionIndex !== null) return;
+    selectedOptionIndex = index;
+
+    // Remove previous selection highlight
+    Array.from(optionsEl.children).forEach(li => li.classList.remove('selected'));
+    // Highlight the selected option
+    element.classList.add('selected');
+
+    // Check answer and show feedback
+    const currentQuestion = quizData[currentQuestionIndex];
+    if (index === currentQuestion.answer) {
+      feedbackEl.textContent = "✔️ Correct! Well done.";
+      feedbackEl.style.color = "#22c55e";
+    } else {
+      feedbackEl.textContent = "❌ Oops! That's not correct.";
+      feedbackEl.style.color = "#ef4444";
+    }
+
+    nextBtn.disabled = false;
+  }
+
+  nextBtn.onclick = () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < quizData.length) {
+      loadQuestion();
+    } else {
+      quizDiv.style.display = "none";
+      naseehatDiv.style.display = "block";
+    }
+  };
+
+  // Load first question on page load
+  loadQuestion();
+</script>
+
+<footer style="
+  background-color: #0f172a;
+  color: #cbd5e1;
+  text-align: center;
+  padding: 15px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9em;
+  letter-spacing: 0.04em;
+  border-top: 1px solid #1e293b;
+  user-select: none;
+">
+  Created by <strong>Efshan Iftikhar</strong> | Contact: 
+  <a href="mailto:efchaneftikhar@gmail.com" style="color: #93c5fd; text-decoration: none;">
+    efchaneftikhar@gmail.com
+  </a>
+</footer>
+
+<!-- Disqus Comments Section -->
+<div id="disqus_thread" style="max-width: 800px; margin: 40px auto;"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url = window.location.href;  // Current page URL
+    this.page.identifier = window.location.pathname; // Unique page identifier
+  };
+
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://defendpakistan-1.disqus.com/embed.js'; // Your Disqus shortname here
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+</body>
+</html>
